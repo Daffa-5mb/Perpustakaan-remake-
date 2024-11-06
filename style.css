@@ -847,12 +847,18 @@ body.logged-in .show-when-logged-out {
 
 @media screen and (max-width: 768px) {
     header {
-        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .logo {
-        font-size: 1.5em;
-        margin-right: 20px;
+        order: 2;
+        margin-right: 10px;
+    }
+
+    .menu-toggle {
+        order: 1;
     }
 
     .navigation a {
@@ -1043,5 +1049,19 @@ body.logged-in .show-when-logged-out {
 
     .menu-toggle.active span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    .menu-toggle {
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 }
