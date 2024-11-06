@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Perpustakaan by Daffa 5mb</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="background.mp4" type="video/mp4">
+        Maaf, browser Anda tidak mendukung video HTML5.
+    </video>
+
+    <button id="toggleSound" class="sound-toggle">
+        <i class="fas fa-volume-mute" aria-hidden="true"></i>
+        <span class="sr-only">Aktifkan/Nonaktifkan Suara</span>
+    </button>
+
+    <header>
+        <h2 class="logo">Perpustakaan</h2>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="navigation">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="#">Beranda</a>
+            <a href="#">Buku</a>
+            <a href="#">Koleksi</a>
+            <a href="#">Kontak</a>
+            <button class="btnLogin-popup" id="loginButton">Masuk</button>
+            <div class="profile-container" id="profileContainer" style="display: none;">
+                <div class="profile-icon" id="profileIcon">
+                    <img src="profile pic.png" alt="Profile Icon">
+                </div>
+                <div class="profile-name-dropdown" id="profileNameDropdown">
+                    <span>Shiroko</span>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-user"></i> Profil Saya
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-cog"></i> Pengaturan
+                    </a>
+                    <a href="#" class="dropdown-item" id="logoutButton">
+                        <i class="fas fa-sign-out-alt"></i> Keluar
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+
+        <!-- Form Login -->
+        <div class="form-box login">
+            <h2>Selamat datang</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Sandi</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Ingat saya</label>
+                    <a href="#" class="forgot-password-link">Lupa sandi?</a>
+                </div>
+                <button type="submit" class="btn">Masuk</button>
+                <div class="login-register">
+                    <p>Belum punya akun? <a href="#" class="register-link">Daftar</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Form Register -->
+        <div class="form-box register">
+            <h2>Daftar</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <input type="text" required>
+                    <label>Nama</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Sandi</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Saya menyetujui syarat & ketentuan</label>
+                </div>
+                <button type="submit" class="btn">Daftar</button>
+                <div class="login-register">
+                    <p>Sudah punya akun? <a href="#" class="login-link">Masuk</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Form Forgot Password -->
+        <div class="form-box forgot-password">
+            <h2>Lupa sandi</h2>
+            <form action="reset_password.php" method="post">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <button type="submit" name="send_code" class="btn">Kirim Link Reset</button>
+                <div class="login-register">
+                    <p>Sudah ingat sandi? <a href="#" class="login-link">Masuk</a></p>
+                </div>                
+            </form>
+        </div>        
+    </div>
+
+    <div class="transparent-rectangle"></div>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Tambahkan ini di akhir body, sebelum tag penutup </body> -->
+    <div id="logoutConfirmDialog" class="logout-confirm-dialog">
+        <div class="logout-confirm-content">
+            <p>Apakah Anda yakin ingin keluar?</p>
+            <div class="logout-confirm-buttons">
+                <button id="logoutConfirmYes">Ya</button>
+                <button id="logoutConfirmNo">Tidak</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Konten utama Anda di sini -->
+    </div>
+
+    <div class="transparent-content">
+        <h2>Selamat Datang di Perpustakaan</h2>
+        <p>Temukan ribuan buku dan sumber daya lainnya di perpustakaan kami. Dari manga, fiksi, klasik, hingga buku ilmiah terbaru. Kami memiliki koleksi yang lengkap untuk memenuhi kebutuhan membaca Anda.</p>
+        <button class="explore-btn" id="exploreButton">Jelajahi Koleksi</button>
+        <div class="additional-info">
+            <p>Buka setiap hari: 08.00 - 20.00</p>
+            <p>(gw gak dibayar untuk semua ini bjir dan ini belum selesai jadi pasti ada gimmicknya🗿)</p>
+        </div>
+    </div>
+
+</body>
+</html>
